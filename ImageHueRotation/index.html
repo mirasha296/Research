@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .rotate{
+     filter: hue-rotate(200deg);
+    }
+
+    .sliderWidth{
+        width: 600px;
+    }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Welcome to the The Image Hue Rotation Generator</h1>
+    <p><strong>Drag the slider to see the magic!</strong></p>
+
+    <!-- <img id="UploadImage" class="rotate" src="/images/ScottishFold.webp"> -->
+    <img id="UploadImage" class="rotate" src="/images/rainbows.jpg">
+    <div id="sliderContainer" class="sliderWidth">
+        <label for="imageSlider">Hue </label>
+        <input type="range" id="imageSlider" class="sliderWidth" "min="0" max="360" step="1" value="0"> <!--step is changes by degree -->
+    </div>
+
+    <div>
+        <h2>Try it out with your image!</h2>
+        <p>Upload an image below <br> and drag the slider again :)</p>
+        
+        <img id="myimage" width="300">
+        
+        <input type="file" onchange="onFileSelected(event)">
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
