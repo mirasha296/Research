@@ -1,0 +1,13 @@
+*
+body { 
+  color: white; /* To make all text on the page white by default */
+  background-color: #2b293d;
+  display: flex;
+  flex-direction: column; /* stack everything vertically */
+  align-items: center;   /* center horizontally */
+  justify-content: center; /* center vertically */
+  min-height: 100vh;     /* full height so vertical centering works */
+  margin: 0;             /* remove default margin */
+  text-align: center;
+}
+

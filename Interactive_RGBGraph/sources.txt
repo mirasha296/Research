@@ -1,0 +1,5 @@
+Here are all my sources for this project:
+1. https://www.youtube.com/watch?v=RTgHV6lK6WY the caption in the bio provided
+    src to the https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js
+2. OpenAI, to configure the interactive part. (not working clearly)
+3. https://www.youtube.com/watch?v=Lt4xPOEZOFs 
