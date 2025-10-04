@@ -5,12 +5,36 @@ body {
   display: flex;
   flex-direction: column; /* stack everything vertically */
   align-items: center;   /* center horizontally */
-  justify-content: center; /* center vertically */   
-  margin: 0;             /* remove default margin */
+  min-height: 100vh;     /* full height so vertical centering works */
   text-align: center;
 }
 
-a {
-  color: white;          /* make links white */
-  text-decoration: none; /* optional: remove underline */
+h1 {
+  font-size: 40px; /* Larger font size for the main heading */
+}
+p {
+  font-size: 20px; /* Font size for the paragraph */
+  margin-top: -20px; /* Adjust spacing between heading and paragraph */
+  margin-bottom: 30px; /* Space below the paragraph */
+}
+
+a{
+  text-decoration: none; /* Remove underline from links */
+  color: white
+}
+
+button {
+  background-color: #38162a; /* Green background */
+  border: solid;               /* Remove borders */
+  color: white;              /* White borders */
+  padding: 15px 32px;        /* Some padding */
+  text-align: center;        /* Centered text */
+  font-size: 20px;        /* Set a font size */
+  margin: 10px;             /* Some margin around buttons */
+  cursor: pointer;          /* Pointer/hand icon on hover */
+  border-radius: 8px;       /* Rounded corners */
+}
+
+button:hover {
+  background-color: #575757; /* Darker green on hover */
 }
