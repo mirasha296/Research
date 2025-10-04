@@ -10,7 +10,7 @@ const chart = new Chart("chart", {
         labels: date,
         datasets: [{
             data: rgb_value,
-            backgroundColor: rgbColor,   // <-- fill color
+            backgroundColor: rgbColor,   // <-- fill colorz
             borderColor: rgbColor,       // optional: match line color too
             fill: true,
             pointRadius: 6,

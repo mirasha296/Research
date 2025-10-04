@@ -2,12 +2,30 @@
 body { 
   color: white; /* To make all text on the page white by default */
   background-color: #2b293d;
-  display: flex;
-  flex-direction: column; /* stack everything vertically */
-  align-items: center;   /* center horizontally */
-  justify-content: center; /* center vertically */
-  min-height: 100vh;     /* full height so vertical centering works */
-  margin: 0;             /* remove default margin */
-  text-align: center;
+  flex-direction: column; /*stack items vertically*/
 }
 
+#sliderContainer, 
+#sliderContainer2, 
+#sliderContainer3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto;
+    justify-content: center;
+}
+
+#sliderContainer label,
+#sliderContainer2 label,
+#sliderContainer3 label {
+    width: 60px;
+    text-align: right;
+}
+
+#sliderContainer span,
+#sliderContainer2 span,
+#sliderContainer3 span {
+    display: inline-block;
+    width: 40px;     /* keeps the number box from shifting */
+    text-align: left;
+}
