@@ -5,9 +5,12 @@ body {
   display: flex;
   flex-direction: column; /* stack everything vertically */
   align-items: center;   /* center horizontally */
-  justify-content: center; /* center vertically */
-  min-height: 100vh;     /* full height so vertical centering works */
+  justify-content: center; /* center vertically */   
   margin: 0;             /* remove default margin */
   text-align: center;
 }
 
+a {
+  color: white;          /* make links white */
+  text-decoration: none; /* optional: remove underline */
+}
