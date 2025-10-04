@@ -23,6 +23,15 @@ const chart = new Chart("chart", {
         title: {
             display: true,
             text: 'RGB Values'
+        },
+        scales: {       // ChatGpt assisted with this fixed y axis issue (y axis was auto scaling)
+            yAxes: [{       //setting y as fixed value
+                ticks: {    // With my understanding, this is setting the y axis range
+                    min: 0,     // min y value
+                    max: 260,   // max y value; setting to 260 and not 255 allows spacing above the max point
+
+                }
+            }]
         }
     }
 })
