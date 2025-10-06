@@ -33,6 +33,7 @@ button {
   margin: 10px;             /* Some margin around buttons */
   cursor: pointer;          /* Pointer/hand icon on hover */
   border-radius: 8px;       /* Rounded corners */
+  transition: 400ms;
 }
 
 button:hover {
