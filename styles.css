@@ -26,7 +26,7 @@ a{
 button {
   background-color: #38162a; /* Green background */
   border: solid;               /* Remove borders */
-  color: white;              /* White borders */
+  color: white;              /* White text */
   padding: 15px 32px;        /* Some padding */
   text-align: center;        /* Centered text */
   font-size: 20px;        /* Set a font size */
@@ -38,4 +38,21 @@ button {
 
 button:hover {
   background-color: #575757; /* Darker green on hover */
+}
+
+.Button1 {
+  background-color: rgba(67, 23, 54, 0.313); /* Green background */
+  color: white;             /* White border */
+  padding: 8px;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;       /* Rounded corners */
+  transition: 400ms;
+  margin-top: -155px;
+  margin-right: 350px;
+  font-size: 20px;
+}
+
+button.Button1:hover {
+  background-color: #907082; 
 }
