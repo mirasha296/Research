@@ -2,6 +2,9 @@
 <html>
 <head>
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19/dist/lil-gui.umd.min.js"></script>
+
 </head>
 <body>
     <a-scene renderer="sortTransparentObjects: true">
@@ -34,50 +37,74 @@
 
 
         <!-- CMYK Cube entity of planes -->
-        <a-entity rotation="0 -45" position="-0.5">
-        <!-- magenta plane 2-sides -->
-            <a-plane
-                color="magenta"
-                position="0 1 -0.5"
-                material="side: double; opacity: 0.5"
-            ></a-plane>
+        <a-entity position="0 0 0">
+            <a-entity id="cube" rotation="0 -45 0" > 
+            
+            <!-- magenta plane 2-sides -->
+                <a-plane
+                    color="magenta"
+                    position="0 1 -0.5"
+                    material="side: double; opacity: 0.5"
+                ></a-plane>
 
-            <a-plane
-                color="magenta"
-                position="0 1 -1.5"
-                material="side: double; opacity: 0.5"
-            ></a-plane>
+                <a-plane
+                    color="magenta"
+                    position="0 1 -1.5"
+                    material="side: double; opacity: 0.5"
+                ></a-plane>
 
-            <!-- cyan plane 2 sides -->
-            <a-plane
-                color="cyan"
-                position="0.5 1 -1"
-                rotation="0 90 0"
-                material="side: double; opacity: 0.5"
-            ></a-plane>
+                <!-- cyan plane 2 sides -->
+                <a-plane
+                    color="cyan"
+                    position="0.5 1 -1"
+                    rotation="0 90 0"
+                    material="side: double; opacity: 0.5"
+                ></a-plane>
 
-            <a-plane
-                color="cyan"
-                position="-0.5 1 -1"
-                rotation="0 90 0"
-                material="side: double; opacity: 0.5"
-            ></a-plane>
+                <a-plane
+                    color="cyan"
+                    position="-0.5 1 -1"
+                    rotation="0 90 0"
+                    material="side: double; opacity: 0.5"
+                ></a-plane>
 
-            <!-- yellow plane 2 sides -->
-            <a-plane
-                color="yellow"
-                position="0 1.5 -1"
-                rotation="90 0 0"
-                material="side: double; opacity: 0.5"
-            ></a-plane>
+                <!-- yellow plane 2 sides -->
+                <a-plane
+                    color="yellow"
+                    position="0 1.5 -1"
+                    rotation="90 0 0"
+                    material="side: double; opacity: 0.5"
+                ></a-plane>
 
-            <a-plane
-                color="yellow"
-                position="0 0.5 -1"
-                rotation="90 0 0"
-                material="side: double; opacity: 0.5"
-            ></a-plane>
+                <a-plane
+                    color="yellow"
+                    position="0 0.5 -1"
+                    rotation="90 0 0"
+                    material="side: double; opacity: 0.5"
+                ></a-plane>
+            </a-entity>
         </a-entity>
     </a-scene>
+
+<script>
+
+let gui = new lil.GUI({ title: 'Controls' })
+
+// variables to change using the gui
+let values = { 
+    cubeRotationAngle: 0,
+
+}
+
+
+
+function rotateCube(angle)
+{
+    document.getElementById("cube").setAttribute("rotation", `0 ${angle} 0`)
+}
+
+gui.add(values, "cubeRotationAngle", 0, 360, 1).onChange(rotateCube) 
+</script>
+
 </body>
 </html>
