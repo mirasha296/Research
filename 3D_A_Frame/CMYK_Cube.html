@@ -37,52 +37,50 @@
 
 
         <!-- CMYK Cube entity of planes -->
-        <a-entity position="0 0 0">
-            <a-entity id="cube" rotation="0 -45 0" > 
-            
-            <!-- magenta plane 2-sides -->
-                <a-plane
-                    color="magenta"
-                    position="0 1 -0.5"
-                    material="side: double; opacity: 0.5"
-                ></a-plane>
+        <a-entity id="cube" rotation="0 0 0"> 
+        
+        <!-- magenta plane 2-sides -->
+            <a-plane
+                color="magenta"
+                position="0 1 -0.5"
+                material="side: double; opacity: 0.5"
+            ></a-plane>
 
-                <a-plane
-                    color="magenta"
-                    position="0 1 -1.5"
-                    material="side: double; opacity: 0.5"
-                ></a-plane>
+            <a-plane
+                color="transparent"
+                position="0 1 -1.5"
+                material="side: double; opacity: 0.5"
+            ></a-plane>
 
-                <!-- cyan plane 2 sides -->
-                <a-plane
-                    color="cyan"
-                    position="0.5 1 -1"
-                    rotation="0 90 0"
-                    material="side: double; opacity: 0.5"
-                ></a-plane>
+            <!-- cyan plane 2 sides -->
+            <a-plane
+                color="cyan"
+                position="0.5 1 -1"
+                rotation="0 90 0"
+                material="side: double; opacity: 0.5"
+            ></a-plane>
 
-                <a-plane
-                    color="cyan"
-                    position="-0.5 1 -1"
-                    rotation="0 90 0"
-                    material="side: double; opacity: 0.5"
-                ></a-plane>
+            <a-plane
+                color="transparent"
+                position="-0.5 1 -1"
+                rotation="0 90 0"
+                material="side: double; opacity: 0.5"
+            ></a-plane>
 
-                <!-- yellow plane 2 sides -->
-                <a-plane
-                    color="yellow"
-                    position="0 1.5 -1"
-                    rotation="90 0 0"
-                    material="side: double; opacity: 0.5"
-                ></a-plane>
+            <!-- yellow plane 2 sides -->
+            <a-plane
+                color="yellow"
+                position="0 1.5 -1"
+                rotation="90 0 0"
+                material="side: double; opacity: 0.5"
+            ></a-plane>
 
-                <a-plane
-                    color="yellow"
-                    position="0 0.5 -1"
-                    rotation="90 0 0"
-                    material="side: double; opacity: 0.5"
-                ></a-plane>
-            </a-entity>
+            <a-plane
+                color="transparent"
+                position="0 0.5 -1"
+                rotation="90 0 0"
+                material="side: double; opacity: 0.5"
+            ></a-plane>
         </a-entity>
     </a-scene>
 
