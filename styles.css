@@ -41,7 +41,7 @@ button:hover {
 }
 
 .Button1 {
-  background-color: rgba(67, 23, 54, 0.313); /* Green background */
+  background-color: rgba(67, 23, 54, 0.313); 
   color: white;             /* White border */
   padding: 8px;
   font-size: 15px;
