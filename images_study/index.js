@@ -1,4 +1,4 @@
-const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+const images = ['img_1.png', 'img_2.png', 'img_3.png'];
         let currentIndex = 0;
 
         document.addEventListener('keydown', (event) => {
