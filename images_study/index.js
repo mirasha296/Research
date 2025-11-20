@@ -1,12 +1,28 @@
-const images = ['img_1.png', 'img_2.png', 'img_3.png'];
-        let currentIndex = 0;
+let slideIndex = 1;
+showSlides(slideIndex);
 
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowRight') {
-                currentIndex = (currentIndex + 1) % images.length;
-                document.getElementById('slider').src = images[currentIndex];
-            } else if (event.key === 'ArrowLeft') {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                document.getElementById('slider').src = images[currentIndex];
-            }
-        });
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
