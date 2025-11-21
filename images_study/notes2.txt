@@ -1,0 +1,39 @@
+public class Stuff
+{
+	String name = "Lee";
+	int ID = 337;
+	
+	// constructor
+	public Stuff()
+	{
+	
+	}
+	
+	
+
+}
+
+// initialize object
+Stuff data = new Stuff();
+data = new Stuff();
+
+// JavaScript
+const data = { "name": "Lee", "ID": 337 }
+
+let x = 4
+x = 5
+
+
+var = create global variable
+let = create local variable
+const = create local variable && it is never re-initalized
+// HTML
+<div class="stylish">Hello world!</div>
+
+
+
+
+
+
+
+

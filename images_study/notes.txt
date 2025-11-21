@@ -1,0 +1,17 @@
+
+class DoStuff
+{
+	public void main action(String keyName)
+	{
+		System.out.print("You pressed " + keyName);
+	}
+}
+
+
+DoStuff stuff = new DoStuff();
+eventListener.addKeyListener( stuff );
+
+// "lambda expression" (syntactic sugar)
+eventListener.addKeyListener( (keyName) => System.out.println("You pressed" + keyName ) );
+
+
