@@ -5,54 +5,22 @@ AFRAME.registerComponent('test-controls',
         /*
             this runs 100 times per second on VR headsets
         */
-        function move(event)
-        {
-
-            let box = document.getElementById("box");
-            box.setAttribute("color", "red");
-
-            // how far should we move? (distance)
-            // speed = distance / time
-            // distance = speed * time
+        function move(event) {
 
             let x = event.detail.x;
             let z = event.detail.y;
 
             let camera = document.getElementById("entity");
-            
-            // get raw data
-            let positionString = camera.getAttribute("position"); // "4 3 7"
 
-            box.setAttribute("color", "orange");
+            // get position as object
+            let position = camera.getAttribute("position");
 
-            // convert to array (of strings)
-            let stringArray = positionString.split(" "); // ["4", "3", "7"]
+            // modify directly
+            position.x += x;
+            position.z += z;
 
-            box.setAttribute("color", "green");
-
-            // convert string to numbers
-            let numberArray = stringArray.map(Number); // [4, 3, 7]
-
-            box.setAttribute("color", "blue");
-
-            // add or subtract from the number
-            numberArray[0] += x;
-            numberArray[2] += z;
-
-            box.setAttribute("color", "purple");
-
-            // convert numbers back to strings
-            stringArray = numberArray.map(String);
-
-            // put strings back together separated by spaces
-            positionString = stringArray.join(" ");
-
-
-            // set attribute
-            camera.setAttribute("position", positionString);
-
-            box.setAttribute("color", "gray");
-
+            // set it back
+            camera.setAttribute("position", position);
         }
 
         this.el.addEventListener('thumbstickmoved',  move );
