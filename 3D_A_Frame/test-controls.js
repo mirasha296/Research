@@ -28,14 +28,18 @@ AFRAME.registerComponent('test-controls',
             // convert to array (of strings)
             let stringArray = positionString.split(" "); // ["4", "3", "7"]
 
+            box.setAttribute("color", "green");
+
             // convert string to numbers
             let numberArray = stringArray.map(Number); // [4, 3, 7]
+
+            box.setAttribute("color", "blue");
 
             // add or subtract from the number
             numberArray[0] += x;
             numberArray[2] += z;
 
-            box.setAttribute("color", "green");
+            box.setAttribute("color", "purple");
 
             // convert numbers back to strings
             stringArray = numberArray.map(String);
@@ -43,12 +47,11 @@ AFRAME.registerComponent('test-controls',
             // put strings back together separated by spaces
             positionString = stringArray.join(" ");
 
-            box.setAttribute("color", "blue");
 
             // set attribute
             camera.setAttribute("position", positionString);
 
-            box.setAttribute("color", "purple");
+            box.setAttribute("color", "gray");
 
         }
 
