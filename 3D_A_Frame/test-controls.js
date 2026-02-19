@@ -8,17 +8,22 @@ AFRAME.registerComponent('test-controls',
         function move(event)
         {
 
+            let box = document.getElementById("box");
+            box.setAttribute("color", "red");
+
             // how far should we move? (distance)
             // speed = distance / time
             // distance = speed * time
 
-            let x = event.detail.x / 100;
-            let z = event.detail.y / 100;
+            let x = event.detail.x;
+            let z = event.detail.y;
 
             let camera = document.getElementById("camera");
             
             // get raw data
             let positionString = camera.getAttribute("position"); // "4 3 7"
+
+            box.setAttribute("color", "orange");
 
             // convert to array (of strings)
             let stringArray = positionString.split(" "); // ["4", "3", "7"]
@@ -30,14 +35,21 @@ AFRAME.registerComponent('test-controls',
             numberArray[0] += x;
             numberArray[2] += z;
 
+            box.setAttribute("color", "green");
+
             // convert numbers back to strings
             stringArray = numberArray.map(String);
 
             // put strings back together separated by spaces
             positionString = stringArray.join(" ");
 
+            box.setAttribute("color", "blue");
+
             // set attribute
             camera.setAttribute("position", positionString);
+
+            box.setAttribute("color", "purple");
+
         }
 
         this.el.addEventListener('thumbstickmoved',  move );
