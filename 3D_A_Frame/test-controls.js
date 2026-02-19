@@ -7,8 +7,8 @@ AFRAME.registerComponent('test-controls',
         */
         function move(event) {
 
-            let x = event.detail.x;
-            let z = event.detail.y;
+            let x = event.detail.x / 100;
+            let z = event.detail.y / 100;
 
             let camera = document.getElementById("entity");
 

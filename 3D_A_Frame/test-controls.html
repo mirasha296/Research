@@ -12,10 +12,6 @@
 <body>
   <a-scene>
 
-    <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc" test-controls></a-entity>
-    <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc" test-controls></a-entity>
-
-
     <a-entity grid="size:10; divisions:200; color:gray"></a-entity>
     <a-plane color="yellow" position="0 -0.01 0" rotation="-90 0 0" scale="10 10 10"></a-plane>
 
@@ -23,6 +19,8 @@
 
     <a-entity id="entity" position="0 0 0">
         <a-camera></a-camera>
+        <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc" test-controls></a-entity>
+        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc" test-controls></a-entity>
     </a-entity>
 
   </a-scene>
