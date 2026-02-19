@@ -18,7 +18,7 @@ AFRAME.registerComponent('test-controls',
             let x = event.detail.x;
             let z = event.detail.y;
 
-            let camera = document.getElementById("camera");
+            let camera = document.getElementById("entity");
             
             // get raw data
             let positionString = camera.getAttribute("position"); // "4 3 7"
