@@ -2,6 +2,7 @@
 <html>
 <head>
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="CMYK_Cube.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19/dist/lil-gui.umd.min.js"></script>
 
@@ -9,8 +10,8 @@
 <body>
     <a-scene renderer="sortTransparentObjects: true">
         <!-- oculus hand controls -->
-        <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
-        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        <!-- <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity> -->
 
         <!-- background & foreground -->
         <a-sky color="#142240"></a-sky>
@@ -21,9 +22,12 @@
                 depth="100" 
                 height="0.1">
         </a-box>
-        <a-camera
-            position="0 2 5">
-        </a-camera>
+        
+        <a-entity id="entity" position="0 0 0">
+        <a-camera></a-camera>
+        <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc" test-controls></a-entity>
+        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc" test-controls></a-entity>
+        </a-entity>
 
         <!-- <a-box
             position="0 0 -2"
