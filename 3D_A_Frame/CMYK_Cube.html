@@ -220,6 +220,14 @@
 
 <script>
 
+// move cube onto right hand
+let cube = document.getElementById("cube");
+let rightHand = document.getElementById("rightHand");
+
+rightHand.appendChild(cube);
+
+
+
 let gui = new lil.GUI({ title: 'Controls' })
 
 // variables to change using the gui
