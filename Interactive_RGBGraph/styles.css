@@ -2,30 +2,32 @@
 body { 
   color: white; /* To make all text on the page white by default */
   background-color: #2b293d;
-  flex-direction: column; /*stack items vertically*/
+  /* flex-direction: column; stack items vertically */
+  font-family: 'Montserrat', sans-serif;
+  
 }
 
 #sliderContainer, 
 #sliderContainer2, 
 #sliderContainer3 {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 10px auto;
-    justify-content: center;
+    /* align-items: center; */
+    /* gap: 10px; */
+    /* margin: 10px auto; */
+    /* justify-content: center; */
 }
 
 #sliderContainer label,
 #sliderContainer2 label,
 #sliderContainer3 label {
-    width: 60px;
-    text-align: right;
+    /* width: 60px; */
+    text-align: center;
 }
 
 #sliderContainer span,
 #sliderContainer2 span,
 #sliderContainer3 span {
     display: inline-block;
-    width: 40px;     /* keeps the number box from shifting */
-    text-align: left;
+    /* width: 40px;     keeps the number box from shifting */
+    /* text-align: left; */
 }
