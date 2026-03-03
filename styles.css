@@ -1,7 +1,7 @@
 :root {                   
   /* Backgrounds            Asked chatgpt for Tron Style color palette */
   --background: #0A1F2C;    /* deep black-blue */
-  --surface: #0f1b2d;      /* dark navy panel */
+  --surface: #0c2028;      /* dark navy panel */
 
   /* Text */
   --text: #e8fbff;         /* soft neon white */
@@ -65,4 +65,9 @@ p, a{
   box-shadow: 0px 0px 10px var(--accent);
 }
 
+.btn,
+.btn2 {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
 
