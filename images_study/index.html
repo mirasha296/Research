@@ -74,9 +74,19 @@ for (let i = 1; i <= 20; i++)
 </div>
 
 <a href="javascript:history.back()"> &larr; </a>
+<script> 
+  const backButton = document.getElementById('backButton');
 
-
-
+  backButton.addEventListener('click', () => {
+    // Check if there's a history to go back to
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      // No history, go to home screen
+      window.location.href = '/index.html'; 
+    }
+  });
+  </script>
 
 <script src="index.js"></script>
 

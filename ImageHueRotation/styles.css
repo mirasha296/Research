@@ -9,6 +9,7 @@ body {
     min-height: 100vh;     /* full height so vertical centering works */
     margin: 0;             /* remove default margin */
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .rotate{
@@ -23,6 +24,21 @@ img {
     border-color: rgba(191, 170, 199, 0.5);
     border-width: 5px;
     border-style: solid;
+}
+
+button{
+    background-color: #5c5470;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 14px;
+}
+
+button:hover {
+    background-color: #7d3b7271;
+    transform: scale(1.05);
 }
 
 
