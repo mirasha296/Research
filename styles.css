@@ -19,8 +19,31 @@
 }
 
 body {
+  margin: 100px;
   background-color: var(--background);
-  color: var(--text)
+  color: var(--text);
+  font-size: 20px;
+  min-height: 100vh;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 60%),
+    linear-gradient(var(--primary) 1px, transparent 1px), /*Horizontal lines*/
+    linear-gradient(90deg, var(--primary) 1px, transparent 1px); /*Vertical lines*/
+
+  background-size:
+    100% 100%,
+    50px 50px,
+    50px 50px;
+  
+
+  background-color: var(--background);
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
 }
 
 h1, h2{
@@ -69,5 +92,6 @@ p, a{
 .btn2 {
   display: inline-block;
   transition: all 0.3s ease;
+  padding: 16px 24px;
 }
 
