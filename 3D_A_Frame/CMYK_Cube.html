@@ -107,34 +107,34 @@
             height="2.5"
             radius="0.5"
         ></a-cylinder>
-    
+    </a-scene>
 
-<script>
+    <script>
 
-// // move cube onto right hand
-// let cube = document.getElementById("cube");
-// let rightHand = document.getElementById("rightHand");
+    // // move cube onto right hand
+    // let cube = document.getElementById("cube");
+    // let rightHand = document.getElementById("rightHand");
 
-// rightHand.appendChild(cube);
-
-
+    // rightHand.appendChild(cube);
 
 
-//GUI does not show in the browser during live server or preview
-let gui = new lil.GUI({ title: 'Controls' })
-// variables to change using the gui
-let values = { 
-    cubeRotationAngle: 0,
 
-}
-function rotateCube(angle)
-{
-    document.getElementById("cube").setAttribute("rotation", `0 ${angle} 0`)
-}
-gui.add(values, "cubeRotationAngle", 0, 360, 1).onChange(rotateCube) 
 
-</script>
-</a-scene>
+    //GUI does not show in the browser during live server or preview
+    let gui = new lil.GUI({ title: 'Controls' })
+    // variables to change using the gui
+    let values = { 
+        cubeRotationAngle: 0,
+
+    }
+    function rotateCube(angle)
+    {
+        document.getElementById("cube").setAttribute("rotation", `0 ${angle} 0`)
+    }
+    gui.add(values, "cubeRotationAngle", 0, 360, 1).onChange(rotateCube) 
+
+    </script>
+
 
 </body>
 </html>
