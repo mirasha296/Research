@@ -7,7 +7,7 @@
     <script src="aframe-extras.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script> <!-- physics extra -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19/dist/lil-gui.umd.min.js"></script>
 
 </head>
 <body>
@@ -117,23 +117,20 @@
 
     // rightHand.appendChild(cube);
 
-
-
-
-    //GUI does not show in the browser during live server or preview
+    console.log("This is working :)");
     let gui = new lil.GUI({ title: 'Controls' })
     // variables to change using the gui
     let values = { 
         cubeRotationAngle: 0,
 
     }
-    console.log("This is working");
+    
     function rotateCube(angle)
     {
         document.getElementById("cube").setAttribute("rotation", `0 ${angle} 0`)
     }
     gui.add(values, "cubeRotationAngle", 0, 360, 1).onChange(rotateCube) 
-
+    console.log("This is working :)");
     </script>
 
 
