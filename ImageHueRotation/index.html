@@ -18,22 +18,6 @@
 </head>
 <body>
     <button id="backButton">&larr;</button>
-
-    <!-- chatgpt helped with script; prompt asked to go back to previous page but if there is none then to go back to home page -->
-    <script> 
-    const backButton = document.getElementById('backButton');
-
-    backButton.addEventListener('click', () => {
-        // Check if there's a history to go back to
-        if (window.history.length > 1) {
-        window.history.back();
-        } else {
-        // No history, go to home screen
-        window.location.href = '/index.html'; 
-        }
-    });
-    </script>
-
     <h1>Welcome to the The Image Hue Rotation Generator</h1>
     <p><strong>Drag the slider to see the magic!</strong></p>
 
