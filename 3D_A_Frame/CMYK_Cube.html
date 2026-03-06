@@ -8,6 +8,30 @@
     <!-- <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script> physics extra -->
     <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19/dist/lil-gui.umd.min.js"></script>
 
+    <script>
+    AFRAME.registerComponent('test-grab',  
+    {
+        init: function () 
+        {
+            // change color of cylinder 
+            function grab(event) {
+
+                let cylinder = document.getElementById("cecilia");
+                cylinder.setAttribute("color", "pink");
+            }
+
+            function release(event) {
+
+                let cylinder = document.getElementById("cecilia");
+                cylinder.setAttribute("color", "green");
+            }
+
+            // all listenable events: https://aframe.io/docs/1.7.0/components/meta-touch-controls.html
+            this.el.addEventListener('gripdown',  grab );
+            this.el.addEventListener('gripup',  release );
+        }
+    });
+    </script>
 </head>
 <body>
     <a-scene physics="0" renderer="sortTransparentObjects: true">
@@ -27,8 +51,8 @@
         
         <a-entity id="entity" movement-controls="controls: gamepad, trackpad, keyboard; speed: 0.03;" position="0 0 0">
             <a-camera></a-camera>
-            <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: highPoly; color: #ffcccc" test-controls></a-entity>
-            <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: highPoly; color: #ffcccc" test-controls></a-entity>
+            <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: highPoly; color: #ffcccc" test-controls test-grab></a-entity>
+            <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: highPoly; color: #ffcccc" test-controls test-grab></a-entity>
         </a-entity>
 
         <!-- <a-box
@@ -112,28 +136,7 @@
     <script>
 
 
-    AFRAME.registerComponent('test-grab',  
-    {
-        init: function () 
-        {
-            // change color of cylinder 
-            function grab(event) {
-
-                let cylinder = document.getElementById("cecilia");
-                cylinder.setAttribute("color", "pink");
-            }
-
-            function release(event) {
-
-                let cylinder = document.getElementById("cecilia");
-                cylinder.setAttribute("color", "green");
-            }
-
-            // all listenable events: https://aframe.io/docs/1.7.0/components/meta-touch-controls.html
-            this.el.addEventListener('gripdown',  grab );
-            this.el.addEventListener('gripup',  release );
-        }
-    });
+    
 
 
 
