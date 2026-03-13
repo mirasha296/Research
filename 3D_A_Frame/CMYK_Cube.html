@@ -31,6 +31,46 @@
             this.el.addEventListener('gripup',  release );
         }
     });
+
+    AFRAME.registerComponent('test-distance',  
+    {
+        init: function()
+        {
+            this.N = 0;
+        },
+        // tick is an AFRAME component function that constantly runs
+        tick: function () 
+        {
+
+            let cylinder = document.getElementById("cecilia");
+                
+            /*
+            step 1: verify that tick works
+            N: 0 - 100 -> yellow
+            N: 100 - 200 -> blue
+            repeat
+
+            step 2: constantly change this to if hand close to cylinder then change
+            TBD
+            */
+
+            // add 1 to N
+            this.N++;
+
+            // change color depending on value
+            if (this.N > 0 && this.N < 100)
+                cylinder.setAttribute("color", "yellow");
+
+            if (this.N > 100 && this.N < 200)
+                cylinder.setAttribute("color", "blue");
+            
+            // when N gets really big, reset to 0
+            if (this.N > 200)
+                this.N = 0;
+
+        }
+    });
+
     </script>
 </head>
 <body>
