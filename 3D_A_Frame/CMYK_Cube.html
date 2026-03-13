@@ -43,7 +43,24 @@
         {
 
             let cylinder = document.getElementById("cecilia");
-                
+            let text = document.getElementById("text");   
+            let rightHand = document.getElementById("rightHand");
+            let cube = document.getElementById("cube");
+            let positionCube = cube.getAttribute("position");
+            let positionHand = rightHand.getAttribute("position");
+
+            // multidimensional pythagorean theorem
+            let a = positionCube.x - positionHand.x;
+            let b = positionCube.y - positionHand.y;
+            let c = positionCube.z - positionHand.z;
+
+            let d = Math.sqrt( a*a + b*b + c*c);
+
+            text.setAttribute("value", d  );
+
+            // HOMEWORK: if d < 1 change color of cylinder to gray else purple
+
+
             /*
             step 1: verify that tick works
             N: 0 - 100 -> yellow
@@ -53,20 +70,23 @@
             step 2: constantly change this to if hand close to cylinder then change
             TBD
             */
-
+            
             // add 1 to N
             this.N++;
+            //text.setAttribute("value",positionCube.y );
 
             // change color depending on value
-            if (this.N > 0 && this.N < 100)
-                cylinder.setAttribute("color", "yellow");
+            //if (this.N > 0 && this.N < 100)
+             ///   cylinder.setAttribute("color", "yellow");
 
-            if (this.N > 100 && this.N < 200)
-                cylinder.setAttribute("color", "blue");
+            //if (this.N > 100 && this.N < 200)
+            //    cylinder.setAttribute("color", "blue");
             
             // when N gets really big, reset to 0
             if (this.N > 200)
                 this.N = 0;
+            
+
 
         }
     });
@@ -112,11 +132,16 @@
         ></a-box> -->
 
 
+        <a-plane position="0 2 -3" color="white">
+            
+            <a-text id="text" value="Error :( " position="0 0 0" align="center" width="4" color="black"></a-text>
+        </a-plane>
+
         <!-- CMYK Cube entity of planes -->
+
 
         <a-entity environment="preset: contact" preset-switcher id="environment"></a-entity>
         <a-entity id="cube" position="0 1.55 -2" rotation="23.825 51.036 -63.28" scale="0.3 0.3 0.3"> 
-        
         <!-- magenta plane 2-sides -->
             <a-plane
                 color="magenta"
