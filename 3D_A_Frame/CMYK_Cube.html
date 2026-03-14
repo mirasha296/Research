@@ -56,10 +56,14 @@
 
             let d = Math.sqrt( a*a + b*b + c*c);
 
-            text.setAttribute("value", d  );
+            text.setAttribute("value", d );
 
             // HOMEWORK: if d < 1 change color of cylinder to gray else purple
-
+            
+            if (d < 1)
+                cylinder.setAttribute("color", "gray");
+            else
+                cylinder.setAttribute("color", "purple");
 
             /*
             step 1: verify that tick works
