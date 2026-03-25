@@ -1,0 +1,22 @@
+algorithm for grab-based movement?
+
+(( in the init function ))
+
+this.isGrabbed = false
+
+(( in the tick function ))
+
+if (grab pressed AND distance from hand to cube is small AND this.cubeGrabbed == false)
+	this.cubeGrabbed = true
+	this.currentHandPosition = get hand position
+	
+if (this.cubeGrabbed)
+	this.previousHandPosition = this.currentHandPosition
+	this.currentHandPosition = get hand position
+	this.directionMoved = this.currentHandPosition - this.previousHandPosition
+	this.currentCubePosition = get cube position
+	this.newCubePosition = this.currentCubePosition + this.directionMoved
+    set cube position( this.newCubePosition )	
+
+if (grab released)
+	this.cubeGrabbed = false
