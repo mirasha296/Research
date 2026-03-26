@@ -2,7 +2,7 @@ algorithm for grab-based movement?
 
 (( in the init function ))
 
-this.isGrabbed = false
+this.cubeGrabbed = false
 
 (( in the tick function ))
 
