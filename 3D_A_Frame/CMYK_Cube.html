@@ -38,63 +38,55 @@
     {
         init: function()
         {
+            function grab(event) {
+
+                let text = document.getElementById("text"); 
+                text.setAttribute("value", "grab was called");
+
+                let rightHand = document.getElementById("rightHand");
+                let cube = document.getElementById("cube");
+
+                // measure the distance from cube to hand (is it small?)
+                let positionCube = cube.getAttribute("position");
+
+                // extra code to access the Javascript layer
+                //   and functions to get the absolute position
+                let absoluteHandPosition = new THREE.Vector3();
+                text.setAttribute("value", "vector was created");
+                positionHand.object3D.getWorldPosition(absoluteHandPosition);
+                text.setAttribute("value", "world position set");
+
+                // this code only gets the local/relative position
+                // this.positionHand = rightHand.getAttribute("position"); 
+                
+                //multidimensional pythagorean theorem
+                let a = this.positionCube.x - absoluteHandPosition.x;
+                let b = this.positionCube.y - absoluteHandPosition.y;
+                let c = this.positionCube.z - absoluteHandPosition.z;
+
+                let distance = Math.sqrt( a*a + b*b + c*c);
+
+                text.setAttribute("value", distance );
+
+                if (distance < 2 && this.cubeGrabbed == false)
+                {
+                    //this.cubeGrabbed = true
+                    //this.currentHandPosition = rightHand.getAttribute("position");    
+                }
+
+            }
+
             this.cubeGrabbed = false;
             // this.currentHandPosition = get hand position
             this.text = document.getElementById("text"); 
-            this.text.setAttribute("value", "init was started");
+            // this.text.setAttribute("value", "init was started");
             this.rightHand = document.getElementById("rightHand");
             this.cube = document.getElementById("cube");
-            this.el.addEventListener('gripdown',  this.grab);
+            this.el.addEventListener('gripdown',  grab);
             // this.el.addEventListener('gripup',  this.release );
             this.text.setAttribute("value", "init was finished");
             
 
-        },
-
-        grab: function(){
-
-            this.text.setAttribute("value", "grab was called");
-
-            // TODO: need to get absolute position of hand, not relative
-
-            // measure the distance from cube to hand (is it small?)
-            this.positionCube = cube.getAttribute("position");
-
-
-
-            // extra code to access the Javascript layer
-            //   and functions to get the absolute position
-            var absoluteHandPosition = new THREE.Vector3();
-            this.text.setAttribute("value", "vector was created");
-            this.positionHand.object3D.getWorldPosition(absoluteHandPosition);
-            this.text.setAttribute("value", "world position set");
-
-            // this code only gets the local/relative position
-            // this.positionHand = rightHand.getAttribute("position"); 
-            
-            //multidimensional pythagorean theorem
-            let a = this.positionCube.x - absoluteHandPosition.x;
-            let b = this.positionCube.y - absoluteHandPosition.y;
-            let c = this.positionCube.z - absoluteHandPosition.z;
-
-            let distance = Math.sqrt( a*a + b*b + c*c);
-
-            this.text.setAttribute("value", distance );
-
-
-
-            if (distance < 2 && this.cubeGrabbed == false)
-            {
-                //this.cubeGrabbed = true
-	            //this.currentHandPosition = rightHand.getAttribute("position");
-                
-            }
-            // this.previousHandPosition = this.currentHandPosition
-            // this.currentHandPosition = get hand position
-            // this.directionMoved = this.currentHandPosition - this.previousHandPosition
-            // this.currentCubePosition = get cube position
-            // this.newCubePosition = this.currentCubePosition + this.directionMoved
-            // set cube position( this.newCubePosition )
         },
 
         // tick is an AFRAME component function that constantly runs
