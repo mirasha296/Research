@@ -41,19 +41,19 @@
             this.cubeGrabbed = false;
             // this.currentHandPosition = get hand position
             this.text = document.getElementById("text"); 
-            this.text.setAttribute("init was started");
+            this.text.setAttribute("value", "init was started");
             this.rightHand = document.getElementById("rightHand");
             this.cube = document.getElementById("cube");
             this.el.addEventListener('gripdown',  this.grab);
             // this.el.addEventListener('gripup',  this.release );
-            this.text.setAttribute("init was finished");
+            this.text.setAttribute("value", "init was finished");
             
 
         },
 
         grab: function(){
 
-            this.text.setAttribute("grab was called");
+            this.text.setAttribute("value", "grab was called");
 
             // TODO: need to get absolute position of hand, not relative
 
@@ -65,9 +65,9 @@
             // extra code to access the Javascript layer
             //   and functions to get the absolute position
             var absoluteHandPosition = new THREE.Vector3();
-            this.text.setAttribute("vector was created");
+            this.text.setAttribute("value", "vector was created");
             this.positionHand.object3D.getWorldPosition(absoluteHandPosition);
-            this.text.setAttribute("world position set");
+            this.text.setAttribute("value", "world position set");
 
             // this code only gets the local/relative position
             // this.positionHand = rightHand.getAttribute("position"); 

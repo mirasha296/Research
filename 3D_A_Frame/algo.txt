@@ -20,3 +20,15 @@ if (this.cubeGrabbed)
 
 if (grab released)
 	this.cubeGrabbed = false
+
+
+
+function distance() { ... }
+function doStuff() { ... }
+
+THREE = {}
+
+THREE.distamce = distamce
+THREE.doStuff = doStuff
+
+[x, y, z]
