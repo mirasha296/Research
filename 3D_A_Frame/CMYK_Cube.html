@@ -11,121 +11,135 @@
     <script>
 
 //------------March 26th, Select this section from lines 13-129, Uncomment this to continue working------------------------------------------------------------------------------------------
-    // AFRAME.registerComponent('test-grab',  
-    // {
-    //     init: function () 
-    //     {
-    //         // change color of cylinder 
-    //         function grab(event) {
+    AFRAME.registerComponent('test-grab',  
+    {
+        init: function () 
+        {
+            // change color of cylinder 
+            function grab(event) {
 
-    //             let cylinder = document.getElementById("cecilia");
-    //             cylinder.setAttribute("color", "pink");
-    //         }
+                let cylinder = document.getElementById("cecilia");
+                cylinder.setAttribute("color", "pink");
+            }
 
-    //         function release(event) {
+            function release(event) {
 
-    //             let cylinder = document.getElementById("cecilia");
-    //             cylinder.setAttribute("color", "green");
-    //         }
+                let cylinder = document.getElementById("cecilia");
+                cylinder.setAttribute("color", "green");
+            }
 
-    //         // all listenable events: https://aframe.io/docs/1.7.0/components/meta-touch-controls.html
-    //         this.el.addEventListener('gripdown',  grab );
-    //         this.el.addEventListener('gripup',  release );
-    //     }
-    // });
+            // all listenable events: https://aframe.io/docs/1.7.0/components/meta-touch-controls.html
+            this.el.addEventListener('gripdown',  grab );
+            this.el.addEventListener('gripup',  release );
+        }
+    });
 
-    // AFRAME.registerComponent('test-distance',  
-    // {
-    //     init: function()
-    //     {
-    //         this.cubeGrabbed = false;
-    //         // this.currentHandPosition = get hand position
-    //         this.text = document.getElementById("text"); 
-    //         this.rightHand = document.getElementById("rightHand");
-    //         this.cube = document.getElementById("cube");
-    //         this.el.addEventListener('gripdown',  this.grab);
-    //         this.el.addEventListener('gripup',  this.release );
+    AFRAME.registerComponent('test-distance',  
+    {
+        init: function()
+        {
+            this.cubeGrabbed = false;
+            // this.currentHandPosition = get hand position
+            this.text = document.getElementById("text"); 
+            this.rightHand = document.getElementById("rightHand");
+            this.cube = document.getElementById("cube");
+            this.el.addEventListener('gripdown',  this.grab);
+            // this.el.addEventListener('gripup',  this.release );
             
 
-    //     },
+        },
 
-    //     grab: function(){
+        grab: function(){
 
-    //         this.positionCube = cube.getAttribute("position");
-    //         this.positionHand = rightHand.getAttribute("position"); 
+
+            // TODO: need to get absolute position of hand, not relative
+
+            // measure the distance from cube to hand (is it small?)
+            this.positionCube = cube.getAttribute("position");
+
+
+
+            // extra code to access the Javascript layer
+            //   and functions to get the absolute position
+            var absoluteHandPosition = new THREE.Vector3();
+            this.positionHand.object3D.getWorldPosition(absoluteHandPosition);
+
+            // this code only gets the local/relative position
+            // this.positionHand = rightHand.getAttribute("position"); 
             
-    //         //multidimensional pythagorean theorem
-    //         let a = this.positionCube.x - this.positionHand.x;
-    //         let b = this.positionCube.y - this.positionHand.y;
-    //         let c = this.positionCube.z - this.positionHand.z;
+            //multidimensional pythagorean theorem
+            let a = this.positionCube.x - absoluteHandPosition.x;
+            let b = this.positionCube.y - absoluteHandPosition.y;
+            let c = this.positionCube.z - absoluteHandPosition.z;
 
-    //         let distance = Math.sqrt( a*a + b*b + c*c);
+            let distance = Math.sqrt( a*a + b*b + c*c);
 
-    //         this.text.setAttribute("value", distance );
+            this.text.setAttribute("value", distance );
 
 
 
-    //         if (distance < 2 && this.cubeGrabbed == false)
-    //         {
-    //             this.cubeGrabbed = true
-	//             this.currentHandPosition = rightHand.getAttribute("position");
-    //         }
-    //         // this.previousHandPosition = this.currentHandPosition
-    //         // this.currentHandPosition = get hand position
-    //         // this.directionMoved = this.currentHandPosition - this.previousHandPosition
-    //         // this.currentCubePosition = get cube position
-    //         // this.newCubePosition = this.currentCubePosition + this.directionMoved
-    //         // set cube position( this.newCubePosition )
-    //     },
+            if (distance < 2 && this.cubeGrabbed == false)
+            {
+                //this.cubeGrabbed = true
+	            //this.currentHandPosition = rightHand.getAttribute("position");
+                
+            }
+            // this.previousHandPosition = this.currentHandPosition
+            // this.currentHandPosition = get hand position
+            // this.directionMoved = this.currentHandPosition - this.previousHandPosition
+            // this.currentCubePosition = get cube position
+            // this.newCubePosition = this.currentCubePosition + this.directionMoved
+            // set cube position( this.newCubePosition )
+        },
 
-    //     // tick is an AFRAME component function that constantly runs
-    //     tick: function () 
-    //     {
+        // tick is an AFRAME component function that constantly runs
+        tick: function () 
+        {
+            this.text.setAttribute("value", "hello" );
+            // multidimensional pythagorean theorem
+            // let a = positionCube.x - positionHand.x;
+            // let b = positionCube.y - positionHand.y;
+            // let c = positionCube.z - positionHand.z;
 
-    //         // multidimensional pythagorean theorem
-    //         // let a = positionCube.x - positionHand.x;
-    //         // let b = positionCube.y - positionHand.y;
-    //         // let c = positionCube.z - positionHand.z;
+            // let d = Math.sqrt( a*a + b*b + c*c);
 
-    //         // let d = Math.sqrt( a*a + b*b + c*c);
-
-    //         // text.setAttribute("value", d );
+            // text.setAttribute("value", d );
 
             
-    //         // if (d < 2)
-    //         //     cylinder.setAttribute("color", "gray");
-    //         // else
-    //         //     cylinder.setAttribute("color", "purple");
+            // if (d < 2)
+            //     cylinder.setAttribute("color", "gray");
+            // else
+            //     cylinder.setAttribute("color", "purple");
 
-    //         // /*
-    //         // step 1: verify that tick works
-    //         // N: 0 - 100 -> yellow
-    //         // N: 100 - 200 -> blue
-    //         // repeat
+            // /*
+            // step 1: verify that tick works
+            // N: 0 - 100 -> yellow
+            // N: 100 - 200 -> blue
+            // repeat
 
-    //         // step 2: constantly change this to if hand close to cylinder then change
-    //         // TBD
-    //         // */
+            // step 2: constantly change this to if hand close to cylinder then change
+            // TBD
+            // */
             
-    //         // // add 1 to N
-    //         // this.N++;
-    //         // //text.setAttribute("value",positionCube.y );
+            // // add 1 to N
+            // this.N++;
+            // //text.setAttribute("value",positionCube.y );
 
-    //         // // change color depending on value
-    //         // //if (this.N > 0 && this.N < 100)
-    //         //  ///   cylinder.setAttribute("color", "yellow");
+            // // change color depending on value
+            // //if (this.N > 0 && this.N < 100)
+            //  ///   cylinder.setAttribute("color", "yellow");
 
-    //         // //if (this.N > 100 && this.N < 200)
-    //         // //    cylinder.setAttribute("color", "blue");
+            // //if (this.N > 100 && this.N < 200)
+            // //    cylinder.setAttribute("color", "blue");
             
-    //         // // when N gets really big, reset to 0
-    //         // if (this.N > 200)
-    //         //     this.N = 0;
+            // // when N gets really big, reset to 0
+            // if (this.N > 200)
+            //     this.N = 0;
             
 
 
-    //     }
-    // });
+        }
+    });
 //-------------------------------------------------------------------------------------------------------------------
     </script>
 </head>
@@ -147,34 +161,16 @@
         
         <a-entity id="entity" movement-controls="controls: gamepad, trackpad, keyboard; speed: 0.03;" position="0 0 0">
             <a-camera></a-camera>
-            <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: highPoly; color: #ffcccc" 
-                test-distance test-controls test-grab></a-entity>
+            <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: highPoly; color: #ffcccc"></a-entity>
             <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: highPoly; color: #ffcccc" 
-                test-distance test-controls test-grab></a-entity>
+                test-distance></a-entity>
         </a-entity>
 
-        <!-- <a-box
-            position="0 0 -2"
-            color="#aa0000"
-            height="4"
-            material="opacity: 0.5"
-        ></a-box>
-    
-        <a-box
-            position="-1 0 -7"
-            color="#00AA00"
-            height="4"
-            material="opacity: 0.5"
-        ></a-box> -->
-
-
         <a-plane width="2" position="0 2 -3" color="white">
-            
-            <a-text id="text" value="Error :( " position="0 0 0" align="center" width="4" color="black"></a-text>
+            <a-text id="text" value="default" position="0 0 0" align="center" width="4" color="black"></a-text>
         </a-plane>
 
         <!-- CMYK Cube entity of planes -->
-
 
         <a-entity environment="preset: contact" preset-switcher id="environment"></a-entity>
         <a-entity id="cube" position="0 1.55 -2" rotation="23.825 51.036 -63.28" scale="0.3 0.3 0.3"> 
@@ -222,11 +218,6 @@
             ></a-plane>
         </a-entity>
 
-        <!-- <a-torus-knot
-            position="1.5 2 -4"
-            color="red"
-        ></a-torus-knot> -->
-
         <a-cylinder
             id="cecilia"
             position="0 0 -2"
@@ -237,18 +228,6 @@
     </a-scene>
 
     <script>
-
-
-    
-
-
-
-    // // move cube onto right hand
-    // let cube = document.getElementById("cube");
-    // let rightHand = document.getElementById("rightHand");
-
-    // rightHand.appendChild(cube);
-
     console.log("This is working :)");
     let gui = new lil.GUI({ title: 'Controls' })
     // variables to change using the gui
