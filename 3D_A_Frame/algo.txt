@@ -1,5 +1,8 @@
 algorithm for grab-based movement?
 
+
+UPDATE ME PLEASE :D
+
 (( in the init function ))
 
 this.cubeGrabbed = false
@@ -13,10 +16,10 @@ if (grab pressed AND distance from hand to cube is small AND this.cubeGrabbed ==
 if (this.cubeGrabbed)
 	this.previousHandPosition = this.currentHandPosition
 	this.currentHandPosition = get hand position
-	this.directionMoved = this.currentHandPosition - this.previousHandPosition
-	this.currentCubePosition = get cube position
-	this.newCubePosition = this.currentCubePosition + this.directionMoved
-    set cube position( this.newCubePosition )	
+	this.directionMoved = this.currentHandPosition - this.previousHandPosition (a, b, c)
+	let currentCubePosition = get cube position
+	let newCubePosition = this.currentCubePosition + this.directionMoved
+    set cube position( newCubePosition )	
 
 if (grab released)
 	this.cubeGrabbed = false

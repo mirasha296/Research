@@ -1,0 +1,34 @@
+
+
+
+1. in the init function, add an event listener for moving the thumbstick
+
+this.el.addEventListener('axismove', this.rotate.bind(this));
+
+
+2. add a "rotate(event)" function in the component whose job is to rotate the cube (like the grab function)
+
+
+// index 0 and 1 for left controller, 2 and 3 for right controller
+
+let leftControllerXAxis  = event.detail.axis[0];
+let leftControllerYAxis  = event.detail.axis[1];
+let rightControllerXAxis = event.detail.axis[2];
+let rightControllerYAxis = event.detail.axis[3]; 
+
+// -1 < xLeft  < +1
+// -1 < yLeft  < +1
+// -1 < xRight < +1
+// -1 < yRight < +1
+
+(while)
+if (rightControllerXAxis < -0.5)   // thumbstick pressed towards left 
+    // rotate the cube around its 3D y-Axis (in 3D, yAxis points up) around it to the left 
+
+if (rightControllerXAxis > +0.5)   // thumbstick pressed towards right 
+    // rotate the cube around its 3D y-Axis (in 3D, yAxis points up) around it to the right 
+
+
+Testable step #1:
+
+add the event listener and rotate function, and display the rightControllerXAxis value on the text display.
