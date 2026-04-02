@@ -68,23 +68,19 @@
 
                 text.setAttribute("value", distance );
 
-                if (distance < 2 && this.cubeGrabbed == false)
+                if (distance < 0.29 && this.cubeGrabbed == false)
                 {
-                    //this.cubeGrabbed = true
-                    //this.currentHandPosition = rightHand.getAttribute("position");    
+                    this.cubeGrabbed = true
+                    this.currentHandPosition = rightHand.getAttribute("position");    
                 }
 
             }
 
             this.cubeGrabbed = false;
-            // this.currentHandPosition = get hand position
             this.text = document.getElementById("text"); 
-            // this.text.setAttribute("value", "init was started");
             this.rightHand = document.getElementById("rightHand");
             this.cube = document.getElementById("cube");
             this.el.addEventListener('gripdown',  grab);
-            // this.el.addEventListener('gripup',  this.release );
-            this.text.setAttribute("value", "init was finished");
             
 
         },
@@ -92,47 +88,27 @@
         // tick is an AFRAME component function that constantly runs
         tick: function () 
         {
-            // this.text.setAttribute("value", "hello" );
-            // multidimensional pythagorean theorem
-            // let a = positionCube.x - positionHand.x;
-            // let b = positionCube.y - positionHand.y;
-            // let c = positionCube.z - positionHand.z;
-
-            // let d = Math.sqrt( a*a + b*b + c*c);
-
-            // text.setAttribute("value", d );
-
             
-            // if (d < 2)
-            //     cylinder.setAttribute("color", "gray");
-            // else
-            //     cylinder.setAttribute("color", "purple");
+            if (this.cubeGrabbed)
+            {
+                this.previousHandPosition = this.currentHandPosition;
+                this.currentHandPosition = this.rightHand.getAttribute("position"); 
+                
+                let directionMoved = new THREE.Vector3();
+                directionMoved.x = this.currentHandPosition.x - this.previousHandPosition.x;
+                directionMoved.y = this.currentHandPosition.y - this.previousHandPosition.y;
+                directionMoved.z = this.currentHandPosition.z - this.previousHandPosition.z;
 
-            // /*
-            // step 1: verify that tick works
-            // N: 0 - 100 -> yellow
-            // N: 100 - 200 -> blue
-            // repeat
+                let currentCubePosition = this.cube.getAttribute("position");
 
-            // step 2: constantly change this to if hand close to cylinder then change
-            // TBD
-            // */
-            
-            // // add 1 to N
-            // this.N++;
-            // //text.setAttribute("value",positionCube.y );
+                let newCubePosition = new THREE.Vector3();
+                newCubePosition.x = currentCubePosition.x + directionMoved.x;
+                newCubePosition.y = currentCubePosition.y + directionMoved.y;
+                newCubePosition.z = currentCubePosition.z + directionMoved.z;
 
-            // // change color depending on value
-            // //if (this.N > 0 && this.N < 100)
-            //  ///   cylinder.setAttribute("color", "yellow");
-
-            // //if (this.N > 100 && this.N < 200)
-            // //    cylinder.setAttribute("color", "blue");
-            
-            // // when N gets really big, reset to 0
-            // if (this.N > 200)
-            //     this.N = 0;
-            
+                this.cube.setAttribute("position", newCubePosition);
+                
+            }
 
 
         }
