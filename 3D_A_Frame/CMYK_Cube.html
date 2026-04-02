@@ -91,7 +91,8 @@
                     this.startCubePosition.z = tempCubePosition.z;                    
                     
                     this.startHandPosition = { x:0, y:0, z:0 };
-                    let tempHandPosition = rightHand.getAttribute("position");    
+                    let tempHandPosition = new THREE.Vector3();
+                    rightHand.object3D.getWorldPosition(tempHandPosition);
                     this.startHandPosition.x = tempHandPosition.x;
                     this.startHandPosition.y = tempHandPosition.y;
                     this.startHandPosition.z = tempHandPosition.z;                    
@@ -108,20 +109,25 @@
             if (this.cubeGrabbed)
             {
                 this.text.setAttribute("value", "grab tick function started");
-                this.currentCubePosition = this.cube.getAttribute("position"); 
-                this.currentHandPosition = this.rightHand.getAttribute("position"); 
-                
+
+                let rightHand = document.getElementById("rightHand");
+
+                let currentHandPosition = new THREE.Vector3();
+                rightHand.object3D.getWorldPosition(currentHandPosition);  
                 let directionHandMoved = { x:0, y:0, z:0 };
-                directionHandMoved.x = this.startHandPosition.x - this.currentHandPosition.x;
-                directionHandMoved.y = this.startHandPosition.y - this.currentHandPosition.y;
-                directionHandMoved.z = this.startHandPosition.z - this.currentHandPosition.z;
+                directionHandMoved.x = currentHandPosition.x - this.startHandPosition.x;
+                directionHandMoved.y = currentHandPosition.y - this.startHandPosition.y;
+                directionHandMoved.z = currentHandPosition.z - this.startHandPosition.z;
 
-                // directionCubeMoved = startCubePosition - currentCubePosition
-                // currentCubePosition = startCubePosition - directionCubeMoved
+                // directionHandMoved = currentHandPosition - startHandPosition
+                // similarly...
+                // directionCubeMoved = currentCubePosition - startCubePosition
+                // rearrange the previous equation...
+                // currentCubePosition = startCubePosition + directionCubeMoved
+                // since the cube and hand move in the same way...
                 // directionCubeMoved = directionHandMoved
-                // currentCubePosition = startCubePosition - directionHandMoved
-
-
+                // by substitution...
+                // currentCubePosition = startCubePosition + directionHandMoved
 
                 let currentCubePosition = { x:0, y:0, z:0 };
                 currentCubePosition.x = this.startCubePosition.x + directionHandMoved.x;
