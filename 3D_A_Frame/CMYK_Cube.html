@@ -45,6 +45,7 @@
             this.rightHand = document.getElementById("rightHand");
             this.cube = document.getElementById("cube");
             this.el.addEventListener('gripdown',  this.grab.bind(this));
+            this.el.addEventListener('gripup',  this.ungrab.bind(this));
             
 
         },
@@ -102,6 +103,11 @@
 
         },
 
+        ungrab: function()
+        {
+            this.cubeGrabbed = false;
+        },
+
         // tick is an AFRAME component function that constantly runs
         tick: function () 
         {
@@ -137,9 +143,8 @@
                 let check = " " + directionHandMoved.x + " " + directionHandMoved.y + " " + directionHandMoved.z + " " + currentCubePosition.x + " " + currentCubePosition.y + " " + currentCubePosition.z
 
                 this.cube.setAttribute("position", currentCubePosition);
-                // this.text.setAttribute("value", "grab tick function finished");
-                this.text.setAttribute("value", check);
-
+                this.text.setAttribute("value", "cube grabbed");
+                // this.text.setAttribute("value", check);
             }
 
 
