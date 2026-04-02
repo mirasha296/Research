@@ -51,6 +51,7 @@
 
         grab: function() 
         {
+                this.text.setAttribute("value", "grab function started");
                 let text = document.getElementById("text"); 
                 text.setAttribute("value", "grab was called");
 
@@ -83,6 +84,7 @@
                 {
                     this.cubeGrabbed = true
                     this.currentHandPosition = rightHand.getAttribute("position");    
+                    this.text.setAttribute("value", "grab conditions satisfied");
                 }
 
         },
@@ -93,6 +95,7 @@
             
             if (this.cubeGrabbed)
             {
+                this.text.setAttribute("value", "grab tick function started");
                 this.previousHandPosition = this.currentHandPosition;
                 this.currentHandPosition = this.rightHand.getAttribute("position"); 
                 
@@ -109,6 +112,7 @@
                 newCubePosition.z = currentCubePosition.z + directionMoved.z;
 
                 this.cube.setAttribute("position", newCubePosition);
+                this.text.setAttribute("value", "grab tick function finished");
 
             }
 
