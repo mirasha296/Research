@@ -83,7 +83,8 @@
                 if (distance < 0.29 && this.cubeGrabbed == false)
                 {
                     this.cubeGrabbed = true
-                    this.currentHandPosition = rightHand.getAttribute("position");    
+                    this.startCubePosition = cube.getAttribute("position");    
+                    this.startHandPosition = rightHand.getAttribute("position");    
                     this.text.setAttribute("value", "grab conditions satisfied");
                 }
 
@@ -96,22 +97,27 @@
             if (this.cubeGrabbed)
             {
                 this.text.setAttribute("value", "grab tick function started");
-                this.previousHandPosition = this.currentHandPosition;
+                this.currentCubePosition = this.cube.getAttribute("position"); 
                 this.currentHandPosition = this.rightHand.getAttribute("position"); 
                 
-                let directionMoved = new THREE.Vector3();
-                directionMoved.x = this.currentHandPosition.x - this.previousHandPosition.x;
-                directionMoved.y = this.currentHandPosition.y - this.previousHandPosition.y;
-                directionMoved.z = this.currentHandPosition.z - this.previousHandPosition.z;
+                let directionHandMoved = new THREE.Vector3();
+                directionHandMoved.x = this.startHandPosition.x - this.currentHandPosition.x;
+                directionHandMoved.y = this.startHandPosition.y - this.currentHandPosition.y;
+                directionHandMoved.z = this.startHandPosition.z - this.currentHandPosition.z;
 
-                let currentCubePosition = this.cube.getAttribute("position");
+                // directionCubeMoved = startCubePosition - currentCubePosition
+                // currentCubePosition = startCubePosition - directionCubeMoved
+                // directionCubeMoved = directionHandMoved
+                // currentCubePosition = startCubePosition - directionHandMoved
 
-                let newCubePosition = new THREE.Vector3();
-                newCubePosition.x = currentCubePosition.x + directionMoved.x;
-                newCubePosition.y = currentCubePosition.y + directionMoved.y;
-                newCubePosition.z = currentCubePosition.z + directionMoved.z;
 
-                this.cube.setAttribute("position", newCubePosition);
+
+                let currentCubePosition = new THREE.Vector3();
+                currentCubePosition.x = startCubePosition.x + directionHandMoved.x;
+                currentCubePosition.y = startCubePosition.y + directionHandMoved.y;
+                currentCubePosition.z = startCubePosition.z + directionHandMoved.z;
+
+                this.cube.setAttribute("position", currentCubePosition);
                 this.text.setAttribute("value", "grab tick function finished");
 
             }
