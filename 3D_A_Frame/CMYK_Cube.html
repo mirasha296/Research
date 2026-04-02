@@ -117,8 +117,11 @@
                 currentCubePosition.y = this.startCubePosition.y + directionHandMoved.y;
                 currentCubePosition.z = this.startCubePosition.z + directionHandMoved.z;
 
+                let check = " " + directionHandMoved.x + " " + directionHandMoved.y + " " + directionHandMoved.z + " " + currentCubePosition.x + " " + currentCubePosition.y + " " + currentCubePosition.z
+
                 this.cube.setAttribute("position", currentCubePosition);
-                this.text.setAttribute("value", "grab tick function finished");
+                // this.text.setAttribute("value", "grab tick function finished");
+                this.text.setAttribute("value", check);
 
             }
 
