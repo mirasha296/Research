@@ -113,9 +113,9 @@
 
 
                 let currentCubePosition = new THREE.Vector3();
-                currentCubePosition.x = startCubePosition.x + directionHandMoved.x;
-                currentCubePosition.y = startCubePosition.y + directionHandMoved.y;
-                currentCubePosition.z = startCubePosition.z + directionHandMoved.z;
+                currentCubePosition.x = this.startCubePosition.x + directionHandMoved.x;
+                currentCubePosition.y = this.startCubePosition.y + directionHandMoved.y;
+                currentCubePosition.z = this.startCubePosition.z + directionHandMoved.z;
 
                 this.cube.setAttribute("position", currentCubePosition);
                 this.text.setAttribute("value", "grab tick function finished");
