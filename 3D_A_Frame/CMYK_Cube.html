@@ -82,9 +82,20 @@
 
                 if (distance < 0.29 && this.cubeGrabbed == false)
                 {
-                    this.cubeGrabbed = true
-                    this.startCubePosition = cube.getAttribute("position");    
-                    this.startHandPosition = rightHand.getAttribute("position");    
+                    this.cubeGrabbed = true;
+
+                    this.startCubePosition = { x:0, y:0, z:0 };
+                    let tempCubePosition = cube.getAttribute("position");    
+                    this.startCubePosition.x = tempCubePosition.x;
+                    this.startCubePosition.y = tempCubePosition.y;
+                    this.startCubePosition.z = tempCubePosition.z;                    
+                    
+                    this.startHandPosition = { x:0, y:0, z:0 };
+                    let tempHandPosition = rightHand.getAttribute("position");    
+                    this.startHandPosition.x = tempHandPosition.x;
+                    this.startHandPosition.y = tempHandPosition.y;
+                    this.startHandPosition.z = tempHandPosition.z;                    
+                    
                     this.text.setAttribute("value", "grab conditions satisfied");
                 }
 
