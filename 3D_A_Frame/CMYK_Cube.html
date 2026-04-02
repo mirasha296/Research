@@ -46,6 +46,7 @@
             this.cube = document.getElementById("cube");
             this.el.addEventListener('gripdown',  this.grab.bind(this));
             this.el.addEventListener('gripup',  this.ungrab.bind(this));
+            this.el.addEventListener('axismove', this.rotate.bind(this));
             
 
         },
@@ -99,6 +100,8 @@
                     this.startHandPosition.z = tempHandPosition.z;                    
                     
                     this.text.setAttribute("value", "grab conditions satisfied");
+
+
                 }
 
         },
@@ -106,6 +109,22 @@
         ungrab: function()
         {
             this.cubeGrabbed = false;
+        },
+
+        rotate: function(event)
+        {
+            let leftControllerXAxis  = event.detail.axis[0];
+            let leftControllerYAxis  = event.detail.axis[1];
+            let rightControllerXAxis = event.detail.axis[2];
+            let rightControllerYAxis = event.detail.axis[3]; 
+
+            this.text.setAttribute("value", "x: " + rightControllerXAxis);
+
+            if (rightControllerXAxis < -0.5)
+            {
+                this.text.setAttribute("value", "rotating left y-bound");
+            }
+            
         },
 
         // tick is an AFRAME component function that constantly runs
