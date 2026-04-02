@@ -38,8 +38,19 @@
     {
         init: function()
         {
-            function grab(event) {
+            
 
+            this.cubeGrabbed = false;
+            this.text = document.getElementById("text"); 
+            this.rightHand = document.getElementById("rightHand");
+            this.cube = document.getElementById("cube");
+            this.el.addEventListener('gripdown',  this.grab.bind(this));
+            
+
+        },
+
+        grab: function() 
+        {
                 let text = document.getElementById("text"); 
                 text.setAttribute("value", "grab was called");
 
@@ -74,15 +85,6 @@
                     this.currentHandPosition = rightHand.getAttribute("position");    
                 }
 
-            }
-
-            this.cubeGrabbed = false;
-            this.text = document.getElementById("text"); 
-            this.rightHand = document.getElementById("rightHand");
-            this.cube = document.getElementById("cube");
-            this.el.addEventListener('gripdown',  grab);
-            
-
         },
 
         // tick is an AFRAME component function that constantly runs
@@ -107,7 +109,7 @@
                 newCubePosition.z = currentCubePosition.z + directionMoved.z;
 
                 this.cube.setAttribute("position", newCubePosition);
-                
+
             }
 
 
