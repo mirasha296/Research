@@ -130,15 +130,15 @@
             }
             if (rightControllerYAxis < -0.5)
             {
-                this.text.setAttribute("value", "rotating down x-bound \n" + rightControllerYAxis);
+                this.text.setAttribute("value", "rotating up x-bound \n" + rightControllerYAxis);
             }
             if (rightControllerYAxis > 0.5)
             {
-                this.text.setAttribute("value", "rotating up x-bound \n" + rightControllerYAxis);
+                this.text.setAttribute("value", "rotating down x-bound \n" + rightControllerYAxis);
             }
 
             //leftcontroller does not show for some reason, but the code is here for when it does work
-             if (leftControllerXAxis < -0.5)
+            if (leftControllerXAxis < -0.5)
             {
                 this.text.setAttribute("value", "rotating left y-bound \n" + leftControllerXAxis);
             }
@@ -146,14 +146,6 @@
             {
                 this.text.setAttribute("value", "rotating right y-bound \n" + leftControllerXAxis);
             }
-
-
-
-
-
-
-        
-            
             
         },
 
