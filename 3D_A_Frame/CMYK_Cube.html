@@ -118,12 +118,17 @@
             let rightControllerXAxis = event.detail.axis[2];
             let rightControllerYAxis = event.detail.axis[3]; 
 
-            this.text.setAttribute("value", "x: " + rightControllerXAxis);
+            this.text.setAttribute("value", rightControllerXAxis);
 
-            if (rightControllerXAxis < -0.5)
-            {ß
-                this.text.setAttribute("value", rightControllerXAxis);
+            if (rightControllerXAxis || leftControllerXAxis  < -0.5)
+            {
+                this.text.setAttribute("value", "rotating left y-bound");
             }
+            if (rightControllerXAxis || leftControllerXAxis > 0.5)
+            {
+                this.text.setAttribute("value", "rotating right y-bound");
+            }
+            
             
         },
 

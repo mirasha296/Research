@@ -32,3 +32,7 @@ if (rightControllerXAxis > +0.5)   // thumbstick pressed towards right
 Testable step #1:
 
 add the event listener and rotate function, and display the rightControllerXAxis value on the text display.
+
+
+
+while(this.cubeGrabbed)
