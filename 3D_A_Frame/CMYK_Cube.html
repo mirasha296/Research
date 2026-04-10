@@ -34,6 +34,15 @@
         }
     });
 
+
+AFRAME.registerComponent('face-forward', {
+  init: function () {  },
+  tick: function () 
+  {
+     this.el.object3D.rotation.y = 0;
+  }
+});
+
     AFRAME.registerComponent('test-distance',  
     {
         init: function()
@@ -50,6 +59,8 @@
             
 
         },
+
+
 
         grab: function() 
         {
@@ -210,8 +221,8 @@
                 height="0.1">
         </a-box> -->
         
-        <a-entity id="entity" movement-controls="controls: gamepad, trackpad, keyboard; speed: 0.03;"  look-controls="axismove: false" position="0 0 0">
-            <a-camera></a-camera>
+        <a-entity id="entity" movement-controls="controls: gamepad, trackpad, keyboard; speed: 0.03;"  face-forward  position="0 0 0">
+            <a-camera face-forward></a-camera>
             <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: highPoly; color: #ffcccc"></a-entity>
             <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: highPoly; color: #ffcccc" 
                 test-distance></a-entity>
