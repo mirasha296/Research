@@ -129,23 +129,29 @@ AFRAME.registerComponent('face-forward', {
             let rightControllerXAxis = event.detail.axis[2];
             let rightControllerYAxis = event.detail.axis[3]; 
 
+            let cube = document.getElementById("cube");
+
             this.text.setAttribute("value", rightControllerXAxis);
 
             if (rightControllerXAxis < -0.5)
             {
                 this.text.setAttribute("value", "rotating left y-bound \n" + rightControllerXAxis);
+                cube.el.object3D.rotation.y -= 0.01
             }
             if (rightControllerXAxis > 0.5)
             {
                 this.text.setAttribute("value", "rotating right y-bound \n" + rightControllerXAxis);
+                cube.el.object3D.rotation.y += 0.01
             }
             if (rightControllerYAxis < -0.5)
             {
                 this.text.setAttribute("value", "rotating up x-bound \n" + rightControllerYAxis);
+                cube.el.object3D.rotation.x += 0.01
             }
             if (rightControllerYAxis > 0.5)
             {
                 this.text.setAttribute("value", "rotating down x-bound \n" + rightControllerYAxis);
+                cube.el.object3D.rotation.x -= 0.01
             }
 
             //leftcontroller does not show for some reason, but the code is here for when it does work
