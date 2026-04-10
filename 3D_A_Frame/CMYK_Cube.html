@@ -135,13 +135,16 @@ AFRAME.registerComponent('face-forward', {
 
             if (rightControllerXAxis < -0.5)
             {
-                this.text.setAttribute("value", "rotating left y-bound \n" + rightControllerXAxis);
-                cube.el.object3D.rotation.y -= 0.01
+                // this.text.setAttribute("value", "rotating left y-bound \n" + rightControllerXAxis);
+                cube.el.object3D.rotation.y -= 0.1
+                this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
+                
             }
             if (rightControllerXAxis > 0.5)
             {
-                this.text.setAttribute("value", "rotating right y-bound \n" + rightControllerXAxis);
-                cube.el.object3D.rotation.y += 0.01
+                // this.text.setAttribute("value", "rotating right y-bound \n" + rightControllerXAxis);
+                cube.el.object3D.rotation.y += 0.1
+                this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
             }
             if (rightControllerYAxis < -0.5)
             {
