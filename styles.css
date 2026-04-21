@@ -39,9 +39,17 @@ body {
 }
 
 .container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.header, .footer{
+    grid-column: span 3;
+    text-align: center;
+}
 
+.box main{
+  max-width: 400px;
 }
 
 h1{
