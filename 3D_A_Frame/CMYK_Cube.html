@@ -133,36 +133,36 @@ AFRAME.registerComponent('face-forward', {
 
             this.text.setAttribute("value", rightControllerXAxis);
 
-            if (rightControllerXAxis < -0.1 && this.cubeGrabbed == false)
+            if (rightControllerXAxis < -0.1 && this.cubeGrabbed == true)
             {
                 // this.text.setAttribute("value", "rotating left y-bound \n" + rightControllerXAxis);
                 cube.object3D.rotation.y -= 0.1 * Math.abs(rightControllerXAxis);
                 this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
                 
             }
-            if (rightControllerXAxis > 0.1 && this.cubeGrabbed == false)
+            if (rightControllerXAxis > 0.1 && this.cubeGrabbed == true)
             {
                 // this.text.setAttribute("value", "rotating right y-bound \n" + rightControllerXAxis);
                 cube.object3D.rotation.y += 0.1 * Math.abs(rightControllerXAxis);
                 this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
             }
-            if (rightControllerYAxis < -0.1 && this.cubeGrabbed == false)
+            if (rightControllerYAxis < -0.1 && this.cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating up x-bound \n" + rightControllerYAxis);
                 cube.el.object3D.rotation.x += 0.1 * Math.abs(rightControllerYAxis);
             }
-            if (rightControllerYAxis > 0.1 && this.cubeGrabbed == false)
+            if (rightControllerYAxis > 0.1 && this.cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating down x-bound \n" + rightControllerYAxis);
                 cube.el.object3D.rotation.x -= 0.1 * Math.abs(rightControllerYAxis);
             }
 
             //leftcontroller does not show for some reason, but the code is here for when it does work
-            if (leftControllerXAxis < -0.1 && this.cubeGrabbed == false)
+            if (leftControllerXAxis < -0.1 && this.cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating left y-bound \n" + leftControllerXAxis);
             }
-            if (leftControllerXAxis > 0.1 && this.cubeGrabbed == false)
+            if (leftControllerXAxis > 0.1 && this.cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating right y-bound \n" + leftControllerXAxis);
             }
