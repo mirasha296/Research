@@ -40,33 +40,46 @@ body {
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
 }
 .header, .footer{
     grid-column: span 3;
     text-align: center;
 }
 
-.box main{
-  max-width: 400px;
+@media (max-width: 600px){
+    .container{
+      grid-template-columns: 1fr;
+    
+  }
 }
 
-h1{
-  font-size: 3rem;
+
+
+.item{
+  background: #0C2028;
+  background: linear-gradient(135deg, rgba(12, 32, 40, 1) 0%, rgba(233, 249, 255, 0.219) 50%, rgba(12, 32, 40, 1) 100%);
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 0.1px white;
+  text-align: center;
 }
 
-h2{
-  font-size: 2rem;
-}
+
 
 h1, h2{
   font-family: 'TR2N', sans-serif;
 }
-p, a{
+h3, p, a{
   font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  
+  /* text-transform: uppercase; */ 
+}
+h3{
+  font-size: 16px;
+}
+.p-small{
+  font-size: 15px;
 }
 .btn{
   background-color: var(--surface);
@@ -80,7 +93,7 @@ p, a{
 
 .btn:hover{
   background-color: var(--background);
-  transition: 0.3s ease;
+  transition: 0.1s ease;
   transform: scale(1.05);
   box-shadow: 0px 0px 10px var(--text-dim);
 }
@@ -93,13 +106,18 @@ p, a{
   border: 2px solid var(--accent);
   text-decoration: none;
   color: var(--accent)
+  
 }
 
 .btn2:hover{
   background-color: var(--background);
-  transition: 0.3s ease;
+  transition: 0.1s ease;
   transform: scale(1.05);
   box-shadow: 0px 0px 10px var(--accent);
+}
+iframe {
+  pointer-events: none;
+  border-radius: 5px;
 }
 
 .btn,
