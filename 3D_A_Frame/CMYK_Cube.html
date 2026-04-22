@@ -11,6 +11,8 @@
     <script>
 
 //------------March 26th, Select this section from lines 13-129, Uncomment this to continue working------------------------------------------------------------------------------------------
+   let cubeGrabbed = false;
+
     AFRAME.registerComponent('test-grab',  
     {
         init: function () 
@@ -39,7 +41,10 @@ AFRAME.registerComponent('face-forward', {
   init: function () {  },
   tick: function () 
   {
-     this.el.object3D.rotation.y = 0;
+    if(cubeGrabbed == true){
+    this.el.object3D.rotation.y = 0;
+    }
+
   }
 });
 
@@ -49,7 +54,7 @@ AFRAME.registerComponent('face-forward', {
         {
             
 
-            this.cubeGrabbed = false;
+            cubeGrabbed = false;
             this.text = document.getElementById("text"); 
             this.rightHand = document.getElementById("rightHand");
             this.cube = document.getElementById("cube");
@@ -93,9 +98,9 @@ AFRAME.registerComponent('face-forward', {
 
                 text.setAttribute("value", distance );
 
-                if (distance < 0.29 && this.cubeGrabbed == false)
+                if (distance < 0.29 && cubeGrabbed == false)
                 {
-                    this.cubeGrabbed = true;
+                    cubeGrabbed = true;
 
                     this.startCubePosition = { x:0, y:0, z:0 };
                     let tempCubePosition = cube.getAttribute("position");    
@@ -119,7 +124,7 @@ AFRAME.registerComponent('face-forward', {
 
         ungrab: function()
         {
-            this.cubeGrabbed = false;
+            cubeGrabbed = false;
         },
 
         rotate: function(event)
@@ -133,36 +138,36 @@ AFRAME.registerComponent('face-forward', {
 
             this.text.setAttribute("value", rightControllerXAxis);
 
-            if (rightControllerXAxis < -0.1 && this.cubeGrabbed == true)
+            if (rightControllerXAxis < -0.1 && cubeGrabbed == true)
             {
                 // this.text.setAttribute("value", "rotating left y-bound \n" + rightControllerXAxis);
                 cube.object3D.rotation.y -= 0.1 * Math.abs(rightControllerXAxis);
                 this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
                 
             }
-            if (rightControllerXAxis > 0.1 && this.cubeGrabbed == true)
+            if (rightControllerXAxis > 0.1 && cubeGrabbed == true)
             {
                 // this.text.setAttribute("value", "rotating right y-bound \n" + rightControllerXAxis);
                 cube.object3D.rotation.y += 0.1 * Math.abs(rightControllerXAxis);
                 this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
             }
-            if (rightControllerYAxis < -0.1 && this.cubeGrabbed == true)
+            if (rightControllerYAxis < -0.1 && cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating up x-bound \n" + rightControllerYAxis);
                 cube.el.object3D.rotation.x += 0.1 * Math.abs(rightControllerYAxis);
             }
-            if (rightControllerYAxis > 0.1 && this.cubeGrabbed == true)
+            if (rightControllerYAxis > 0.1 && cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating down x-bound \n" + rightControllerYAxis);
                 cube.el.object3D.rotation.x -= 0.1 * Math.abs(rightControllerYAxis);
             }
 
             //leftcontroller does not show for some reason, but the code is here for when it does work
-            if (leftControllerXAxis < -0.1 && this.cubeGrabbed == true)
+            if (leftControllerXAxis < -0.1 && cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating left y-bound \n" + leftControllerXAxis);
             }
-            if (leftControllerXAxis > 0.1 && this.cubeGrabbed == true)
+            if (leftControllerXAxis > 0.1 && cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating right y-bound \n" + leftControllerXAxis);
             }
@@ -173,7 +178,7 @@ AFRAME.registerComponent('face-forward', {
         tick: function () 
         {
             
-            if (this.cubeGrabbed)
+            if (cubeGrabbed)
             {
                 this.text.setAttribute("value", "grab tick function started");
 
