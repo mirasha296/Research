@@ -154,12 +154,12 @@ AFRAME.registerComponent('face-forward', {
             if (rightControllerYAxis < -0.1 && cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating up x-bound \n" + rightControllerYAxis);
-                cube.el.object3D.rotation.x += 0.1 * Math.abs(rightControllerYAxis);
+                cube.object3D.rotation.x += 0.1 * Math.abs(rightControllerYAxis);
             }
             if (rightControllerYAxis > 0.1 && cubeGrabbed == true)
             {
                 this.text.setAttribute("value", "rotating down x-bound \n" + rightControllerYAxis);
-                cube.el.object3D.rotation.x -= 0.1 * Math.abs(rightControllerYAxis);
+                cube.object3D.rotation.x -= 0.1 * Math.abs(rightControllerYAxis);
             }
 
             //leftcontroller does not show for some reason, but the code is here for when it does work
@@ -243,9 +243,8 @@ AFRAME.registerComponent('face-forward', {
         </a-entity>
 
         <a-plane width="2" position="0 2 -3" color="white">
-            <a-text id="text" value="default" position="0 0 0" align="center" width="4" color="black"></a-text>
+            <a-text id="text" value=" <3 " position="0 0 0" align="center" width="4" color="black"></a-text>
         </a-plane>
-
         <!-- CMYK Cube entity of planes -->
 
         <a-entity environment="preset: contact" preset-switcher id="environment"></a-entity>
