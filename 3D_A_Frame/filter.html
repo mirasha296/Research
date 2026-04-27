@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+   
+</head>
+<body>
+<a-scene renderer="sortTransparentObjects: true">
+    
+
+    <a-plane width="2" position="0 2 -3" material="shader: flat; color: white;"> 
+        <a-text id="text" color="#880088" opacity="0.9" value=" <3 " position="0 0 0" align="center" width="4">
+
+        </a-text>
+    </a-plane>
+
+    <a-plane
+            color="#880088" 
+            position="0 2 -2"
+            material="shader: flat; side: double; opacity: 0.5; blending: multiply;">
+    </a-plane>
+
+
+</body>
+</html>
