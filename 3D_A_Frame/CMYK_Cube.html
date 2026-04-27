@@ -246,8 +246,9 @@ AFRAME.registerComponent('face-forward', {
                 test-distance></a-entity>
         </a-entity>
 
-        <a-plane width="2" position="0 2 -3" color="white">
-            <a-text id="text" value=" <3 " position="0 0 0" align="center" width="4" color="black"></a-text>
+        <a-plane width="2" position="0 2 -3" color="white" material="shader: flat; side: double; opacity: 0.5; blending: multiply;">
+            <a-text id="text" value=" Secret Message " position="0 0 0.02" align="center" width="4" color="#00ffff" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
+            <a-text id="text" value=" XXXXXXXXXXXX " position="0 0 0" align="center" width="4" color="#FF00FF" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
         </a-plane>
         <!-- CMYK Cube entity of planes -->
 
@@ -258,13 +259,13 @@ AFRAME.registerComponent('face-forward', {
             <a-plane
                 color="magenta"
                 position="0 0 0.5"
-                material="side: double; opacity: 0.5"
+                material="shader:flat; side: double; opacity: 0.5"
             ></a-plane>
 
             <a-plane
                 color="transparent"
                 position="0 0 -0.5"
-                material="side: double; opacity: 0.5"
+                material="side: double; opacity: 0.05"
             ></a-plane>
 
             <!-- cyan plane 2 sides -->
