@@ -247,8 +247,13 @@ AFRAME.registerComponent('face-forward', {
         </a-entity>
 
         <a-plane width="2" position="0 2 -3" color="white" material="shader: flat; side: double; opacity: 0.5; blending: multiply;">
-            <a-text id="text" value=" Secret Message " position="0 0 0.02" align="center" width="4" color="#00ffff" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
-            <a-text id="text" value=" XXXXXXXXXXXX " position="0 -0.03 0.2" align="center" width="4" color="#FF00FF" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
+            <a-text id="text" value=" Secret Message " position="0 -0.02 0" align="center" width="4" color="#00ffff" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
+            <a-text id="text" value=" XXXXXXXXXXXX " position="0 -0.03 0.02" align="center" width="4" color="#FF00FF" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
+        </a-plane>
+
+        <a-plane width="2" position="1.685 2 -2.213" rotation="0 -47 0" color="white" material="shader: flat; side: double; opacity: 0.5; blending: multiply;">
+            <a-text id="text" value=" happy " position="0 -0.02 0" align="center" width="4" color="#00ffff" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
+            <a-text id="text" value=" XXXXXXXXXXXX " position="0 -0.03 0.02" align="center" width="4" color="#fff500" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
         </a-plane>
         <!-- CMYK Cube entity of planes -->
 
@@ -265,7 +270,7 @@ AFRAME.registerComponent('face-forward', {
             <a-plane
                 color="transparent"
                 position="0 0 -0.5"
-                material="side: double; opacity: 0.05"
+                material="shader:flat; side: double; opacity: 0.5"
             ></a-plane>
 
             <!-- cyan plane 2 sides -->
@@ -273,14 +278,14 @@ AFRAME.registerComponent('face-forward', {
                 color="cyan"
                 position="0.5 0 0"
                 rotation="0 90 0"
-                material="side: double; opacity: 0.5"
+                material="shader:flat; side: double; opacity: 0.5"
             ></a-plane>
 
             <a-plane
                 color="transparent"
                 position="-0.5 0 0"
                 rotation="0 90 0"
-                material="side: double; opacity: 0.5"
+                material="shader:flat; side: double; opacity: 0.5"
             ></a-plane>
 
             <!-- yellow plane 2 sides -->
@@ -288,14 +293,14 @@ AFRAME.registerComponent('face-forward', {
                 color="yellow"
                 position="0 0.5 0"
                 rotation="90 0 0"
-                material="side: double; opacity: 0.5"
+                material="shader:flat; side: double; opacity: 0.5"
             ></a-plane>
 
             <a-plane
                 color="transparent"
                 position="0 -0.5 0"
                 rotation="90 0 0"
-                material="side: double; opacity: 0.5"
+                material="shader:flat; side: double; opacity: 0.5"
             ></a-plane>
         </a-entity>
         <!-- </a-entity> -->
@@ -303,7 +308,7 @@ AFRAME.registerComponent('face-forward', {
             id="cecilia"
             position="0 0 -2"
             color="#00E5FF"
-            height="2.25"
+            height="2.15"
             radius="0.5"
         ></a-cylinder>
     </a-scene>
