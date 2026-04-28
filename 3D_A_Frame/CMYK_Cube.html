@@ -69,7 +69,7 @@ AFRAME.registerComponent('face-forward', {
 
         grab: function() 
         {
-                this.text.setAttribute("value", "grab function started");
+                // this.text.setAttribute("value", "grab function started");
                 let text = document.getElementById("text"); 
                 text.setAttribute("value", "grab was called");
 
@@ -115,7 +115,7 @@ AFRAME.registerComponent('face-forward', {
                     this.startHandPosition.y = tempHandPosition.y;
                     this.startHandPosition.z = tempHandPosition.z;                    
                     
-                    this.text.setAttribute("value", "grab conditions satisfied");
+                    // this.text.setAttribute("value", "grab conditions satisfied");
 
 
                 }
@@ -136,7 +136,7 @@ AFRAME.registerComponent('face-forward', {
 
             let cube = document.getElementById("cube");
 
-            this.text.setAttribute("value", rightControllerXAxis);
+            // this.text.setAttribute("value", rightControllerXAxis);
 
             if (rightControllerXAxis < -0.1 && cubeGrabbed == true)
             {
@@ -151,17 +151,17 @@ AFRAME.registerComponent('face-forward', {
                 // this.text.setAttribute("value", "rotating right y-bound \n" + rightControllerXAxis);
                 // cube.object3D.rotation.y += 0.1 * Math.abs(rightControllerXAxis);
                 cube.object3D.rotateOnWorldAxis(new THREE.Vector3(0,1,0), 0.1 * Math.abs(rightControllerXAxis));
-                this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
+                // this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
             }
             if (rightControllerYAxis < -0.1 && cubeGrabbed == true)
             {
-                this.text.setAttribute("value", "rotating up x-bound \n" + rightControllerYAxis);
+                // this.text.setAttribute("value", "rotating up x-bound \n" + rightControllerYAxis);
                 // cube.object3D.rotation.x += 0.1 * Math.abs(rightControllerYAxis);
                 cube.object3D.rotateOnWorldAxis(new THREE.Vector3(1,0,0), -0.1 * Math.abs(rightControllerYAxis));
             }
             if (rightControllerYAxis > 0.1 && cubeGrabbed == true)
             {
-                this.text.setAttribute("value", "rotating down x-bound \n" + rightControllerYAxis);
+                // this.text.setAttribute("value", "rotating down x-bound \n" + rightControllerYAxis);
                 // cube.object3D.rotation.x -= 0.1 * Math.abs(rightControllerYAxis);
                 cube.object3D.rotateOnWorldAxis(new THREE.Vector3(1,0,0), 0.1 * Math.abs(rightControllerYAxis));
             }
@@ -184,7 +184,7 @@ AFRAME.registerComponent('face-forward', {
             
             if (cubeGrabbed)
             {
-                this.text.setAttribute("value", "grab tick function started");
+                // this.text.setAttribute("value", "grab tick function started");
 
                 let rightHand = document.getElementById("rightHand");
 
@@ -213,7 +213,7 @@ AFRAME.registerComponent('face-forward', {
                 let check = " " + directionHandMoved.x + " " + directionHandMoved.y + " " + directionHandMoved.z + " " + currentCubePosition.x + " " + currentCubePosition.y + " " + currentCubePosition.z
 
                 this.cube.setAttribute("position", currentCubePosition);
-                this.text.setAttribute("value", "cube grabbed");
+                // this.text.setAttribute("value", "cube grabbed");
                 // this.text.setAttribute("value", check);
             }
 
@@ -248,7 +248,7 @@ AFRAME.registerComponent('face-forward', {
 
         <a-plane width="2" position="0 2 -3" color="white" material="shader: flat; side: double; opacity: 0.5; blending: multiply;">
             <a-text id="text" value=" Secret Message " position="0 0 0.02" align="center" width="4" color="#00ffff" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
-            <a-text id="text" value=" XXXXXXXXXXXX " position="0 0 0" align="center" width="4" color="#FF00FF" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
+            <a-text id="text" value=" XXXXXXXXXXXX " position="0 -0.03 0.2" align="center" width="4" color="#FF00FF" material="shader: flat; side: double; opacity: 0.5; blending: multiply;" ></a-text>
         </a-plane>
         <!-- CMYK Cube entity of planes -->
 
