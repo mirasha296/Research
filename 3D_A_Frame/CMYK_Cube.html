@@ -70,8 +70,8 @@ AFRAME.registerComponent('face-forward', {
         grab: function() 
         {
                 // this.text.setAttribute("value", "grab function started");
-                let text = document.getElementById("text"); 
-                text.setAttribute("value", "grab was called");
+                // let text = document.getElementById("text"); 
+                // text.setAttribute("value", "grab was called");
 
                 let rightHand = document.getElementById("rightHand");
                 let cube = document.getElementById("cube");
@@ -82,9 +82,9 @@ AFRAME.registerComponent('face-forward', {
                 // extra code to access the Javascript layer
                 //   and functions to get the absolute position
                 let absoluteHandPosition = new THREE.Vector3();
-                text.setAttribute("value", "vector was created");
+                // text.setAttribute("value", "vector was created");
                 rightHand.object3D.getWorldPosition(absoluteHandPosition);
-                text.setAttribute("value", "world position set");
+                // text.setAttribute("value", "world position set");
 
                 // this code only gets the local/relative position
                 // this.positionHand = rightHand.getAttribute("position"); 
@@ -96,7 +96,7 @@ AFRAME.registerComponent('face-forward', {
 
                 let distance = Math.sqrt( a*a + b*b + c*c);
 
-                text.setAttribute("value", distance );
+                // text.setAttribute("value", distance );
 
                 if (distance < 0.29 && cubeGrabbed == false)
                 {
@@ -143,7 +143,7 @@ AFRAME.registerComponent('face-forward', {
                 // this.text.setAttribute("value", "rotating left y-bound \n" + rightControllerXAxis);
                 // cube.object3D.rotation.y -= 0.1 * Math.abs(rightControllerXAxis);
                 cube.object3D.rotateOnWorldAxis(new THREE.Vector3(0,1,0), -0.1 * Math.abs(rightControllerXAxis));
-                this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
+                // this.text.setAttribute("value", "cube y rotation \n" + cube.el.object3D.rotation.y);
                 
             }
             if (rightControllerXAxis > 0.1 && cubeGrabbed == true)
